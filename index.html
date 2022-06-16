@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <link rel="stylesheet" href="style.css">
+    
+    
+</head>
+<body>
+    <h1>Calculadora criada por Leonardo do Valle</h1>
+    <div class="calculator-grid">
+        <div class="output">
+            <div data-previous-operand class="previous-operand"></div>
+            <div data-current-operand id="current-operand"></div>
+        </div>
+        <button data-all-clear
+        class="span-two" onclick="clean()">AC</button>
+        <button class="botao" onclick="delet()">del</button>
+        <button class="botao" onclick="insert('/')">÷</button>
+        <button class="botao" onclick="insert('1')">1</button>
+        <button class="botao" onclick="insert('2')">2</button>
+        <button class="botao" onclick="insert('3')">3</button>
+        <button class="botao" onclick="insert('*')">X</button>
+        <button class="botao" onclick="insert('4')">4</button>
+        <button class="botao" onclick="insert('5')">5</button>
+        <button class="botao" onclick="insert('6')">6</button>
+        <button class="botao" onclick="insert('+')">+</button>
+        <button class="botao" onclick="insert('7')">7</button>
+        <button class="botao" onclick="insert('8')">8</button>
+        <button class="botao" onclick="insert('9')">9</button>
+        <button class="botao" onclick="insert('-')">-</button>
+        <button class="botao" onclick="insert('.')">.</button>
+        <button class="botao" onclick="insert('0')">0</button>
+        <button data-equals class="span-two" onclick="calcular()">=</button>
+    </div>
+
+    <script>
+        function insert(num){
+            var operand = document.getElementById ('current-operand').innerHTML;
+            document.getElementById('current-operand').innerHTML = operand + num 
+
+        }
+
+        function clean(){
+            document.getElementById ('current-operand').innerHTML = '';
+            
+        }
+        function delet(){
+            var resultado = document.getElementById('current-operand').innerHTML
+            document.getElementById('current-operand').innerHTML = resultado.substring(0, resultado.length -1);
+        }
+        function calcular(){
+            var resultado = document.getElementById ('current-operand').innerHTML
+            if(resultado){
+                document.getElementById ('current-operand').innerHTML = eval(resultado);
+            }
+
+        }
+    </script>
+
+</body>
+</html>
